@@ -67,6 +67,18 @@ public class Week1CapStone {
 		return false;
 	}
 	
+	static boolean hasSpecialChar(String word) {
+		char [] specialChars = {'@', '.', ':', ';'};
+		for (int i = 0; i < word.length(); i++) {
+			for (int j = 0; j < specialChars.length; j++) {
+				if (word.charAt(i) == specialChars[j]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	static String ayOrWay(boolean startsWithVowel) {
 		if (startsWithVowel) {
 			return "way";
@@ -93,6 +105,11 @@ public class Week1CapStone {
 		String leadingConsonants = word.substring(0, findFirstVowelIndex(word));
 		boolean startsWithVowel = startsWithVowel(word);
 		String suffix = ayOrWay(startsWithVowel);
+		
+		if (hasSpecialChar(word)) {
+			return word;
+		}
+		
 		if (!hasVowel(word)) {
 			return word;
 		}
